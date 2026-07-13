@@ -1,0 +1,62 @@
+.duckjil-translation-box {
+  margin-top: 6px;
+  padding: 8px 12px;
+  background: #e6f1fb;
+  border: 0.5px solid #b5d4f4;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #042c53;
+}
+
+.duckjil-translation-box__label {
+  font-size: 10px;
+  font-weight: 500;
+  color: #185fa5;
+  margin-bottom: 3px;
+  letter-spacing: 0.03em;
+}
+
+.duckjil-translation-box__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.duckjil-translation-box__skeleton-line {
+  display: block;
+  height: 10px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #cfe2f5 25%, #e6f1fb 37%, #cfe2f5 63%);
+  background-size: 400% 100%;
+  animation: duckjil-skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+.duckjil-translation-box__skeleton-line:last-child {
+  width: 70%;
+}
+
+@keyframes duckjil-skeleton-pulse {
+  0%   { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+.duckjil-translation-box__feedback {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.duckjil-translation-box__feedback-btn {
+  font-size: 11px;
+  padding: 2px 8px;
+  background: #fff;
+  border: 0.5px solid #b5d4f4;
+  border-radius: 6px;
+  color: #185fa5;
+  cursor: pointer;
+}
+
+.duckjil-translation-box__feedback-btn:hover {
+  background: #d5e8fa;
+}

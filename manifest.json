@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "덕질 번역기",
+  "version": "0.1.0",
+  "description": "트위터, AO3, 팬픽 사이트를 실시간 한국어 번역",
+  "permissions": ["storage", "activeTab", "scripting", "unlimitedStorage"],
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*",
+    "https://archiveofourown.org/*",
+    "https://www.fanfiction.net/*",
+    "https://www.pixiv.net/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["src/content/index.ts"],
+      "css": ["src/styles/content.css"]
+    },
+    {
+      "matches": ["https://archiveofourown.org/works/*"],
+      "js": ["src/content/ao3.ts"],
+      "css": ["src/styles/content.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.fanfiction.net/s/*"],
+      "js": ["src/content/fanfiction.ts"],
+      "css": ["src/styles/content.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.pixiv.net/novel/*"],
+      "js": ["src/content/pixiv.ts"],
+      "css": ["src/styles/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_icon": {
+      "16": "public/icons/icon16.png",
+      "48": "public/icons/icon48.png",
+      "128": "public/icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "public/icons/icon16.png",
+    "48": "public/icons/icon48.png",
+    "128": "public/icons/icon128.png"
+  }
+}
